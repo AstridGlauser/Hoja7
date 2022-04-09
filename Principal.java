@@ -45,6 +45,29 @@ public class OpA {
             System.out.println("ERROR");//captura excepcion
 
         }
+        
+        try {
+            System.out.println("Ingrese el nombre del archivo que deseas traducir");
+            
+            nombrearc1 = s.nextLine();
+            File infa = new File(nombrearc1);
+            Scanner readerFromFile = new Scanner(infa);
+
+            while (readerFromFile.hasNextLine()) {
+                
+                lineas2 = readerFromFile.nextLine();
+                System.out.println(lineas2);
+                String[] palabras2 = lineas2.split(" ");
+
+                //se agregan las palabras con separacion
+                for (int i = 0; i < palabras2.length; i++) {
+                    textog.add(palabras2[i]);
+                }
+
+            } 
+        } catch (Exception e) {
+            System.out.println("ERROR");
+        }
 
    
         while (OpcionesMenu == false) {//opciones del menu
@@ -59,33 +82,12 @@ public class OpA {
             System.out.println("3.Insertar");
             System.out.println("4.Modificar");
             System.out.println("5.Eliminar");
-            System.out.println(dicci);
+        
          
             int opcion = s.nextInt();
 
             if (opcion == 1) {
 
-                try {
-                    System.out.println("Ingrese el nombre del archivo que deseas traducir");
-                    nombrearc1 = s.nextLine();
-                    File infa = new File(nombrearc1);
-                    Scanner readerFromFile = new Scanner(infa);
-        
-                    while (readerFromFile.hasNextLine()) {
-                        
-                        lineas2 = readerFromFile.nextLine();
-                        System.out.println(lineas2);
-                        String[] palabras2 = lineas2.split(" ");
-        
-                        //se agregan las palabras con separacion
-                        for (int i = 0; i < palabras2.length; i++) {
-                            textog.add(palabras2[i]);
-                        }
-        
-                    } 
-                } catch (Exception e) {
-                    System.out.println("ERROR");
-                }
      
                 System.out.println("Selecciona el lenguaje");
                 System.out.println("1.Ingles");
